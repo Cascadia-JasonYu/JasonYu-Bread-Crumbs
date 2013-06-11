@@ -1,87 +1,187 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Device Check</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--Bread Crumbs mobile app and website -->
 
-<link href='http://fonts.googleapis.com/css?family=Snippet|Anaheim|Roboto+Condensed' rel='stylesheet' type='text/css'>
-
-<link href="themes/device-check-theme.min.css" rel="stylesheet" type="text/css"/>
-<link href="themes/jquery.mobile.structure-1.3.0.min.css" rel="stylesheet" type="text/css"/>
-<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="js/jquery.mobile-1.3.0.min.js" type="text/javascript"></script>
-
-<link href="themes/devicecheck.css" type="text/css" rel="stylesheet">
-
+<meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/crumbs.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script src="js/crumbs.js" type="text/javascript"></script>
 </head> 
-<body data-theme="b"> 
+<body> 
 
-<div data-role="page" data-theme="b" id="home" >
-	<header data-role="none">
-		<h1>Device Check</h1>
-		<h2>Juan Smithe</h2>
-	</header>
-	<div data-role="content" data-theme="b">
-    <h2>User Information</h2>
-		<form action="#">
-		 <input placeholder="Name" type="text" name="namebox" id="namebox" data-theme="c"/>
-		 <input placeholder="Phone #" type="text" name="phonebox" id="phonebox"data-theme="c"/>
-		 <label for="device_list" class="select" style="display:none;">Device #</label>
-		 <select name="device_list" id="device_list" data-theme="c">
-		   <option> Device #</option>
-		   <option value="12611">12611</option>
-		   <option value="12612">12612</option>
-		   <option value="12613">12613</option>
-		   <option value="12345">12345</option>
-		</select>
-		<input id="checkout" type="submit" value="Checkout" data-theme="b"/>
-		</form>	
+    <!-- main page of the app -->
+<div data-role="page" id="crumbsmain">
+	<div data-role="header">
+		<h1>Bread Crumbs</h1>
 	</div>
-	<footer data-role="footer" data-theme="b" data-position="fixed">
-	<div data-role="navbar" data-iconpos="left">
-			<a href="#home" data-icon="home" class="ui-btn-active">Home</a>
-			<a href="#settings" data-icon="gear" >Settings</a>
-			<a href="#deviceinfo" data-icon="grid">Devices</a>
-		</div>
-	</footer>
+    <div data-role="header" class="logo">
+    <img src="images/eyes.png"/>
+    </div>
+    <div data-role="content">	
+        <ul data-role="listview" data-inset="true" data-divider-theme="d">
+        <li data-role="list-divider"></li>
+        <li><a href="#newcrumbs"
+        data-role="button">New Crumbs</a></li>
+        <ul data-role="listview" data-inset="true" data-divider-theme="d">
+        	<div data-role="collapsible-set">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>All My Crumbs</h3>
+                        <li><a href="#ultimate"
+                        data-role="button">Ultimate Crumbs</a></li>
+                        <li><a href="#allcrumbs"
+                        data-role="button">Current Crumbs</a></li>
+                        <li><a href="#sweep"
+                        data-role="button">Sweep Crumbs</a></li>
+                        <li><a href="#tasty"
+                        data-role="button">Tasty Crumbs (fun)</a></li>
+                        <li><a href="#old"
+                        data-role="button">Old Crumbs</a></li>
+                </div> <!-- collapsible buttons -->
+            </div> <!--collapsible-set-->
+        </ul>
+        <li><a href="#aboutcrumbs"
+        data-role="button">What are Bread Crumbs?</a></li>
+        <li data-role="list-divider"></li>
+        </ul>	
+    </div>
 </div>
 
-<div data-role="page" data-theme="b" id="settings">
-	<header data-role="none">
-		<h1>Device Check</h1>
-		<h2>Juan Smithe</h2>
-	</header>
+<!-- New Crumbs page -->
+<div data-role="page" id="newcrumbs">
+	<div data-role="header">
+		<h1>New Crumbs</h1>
+	</div>
 	<div data-role="content">	
-		Settings Page		
+		Content		
 	</div>
-	<footer data-role="footer" data-theme="b" data-position="fixed">
-	<div data-role="navbar" data-iconpos="right">
-			<a href="#home" data-icon="home" data-role="button">Home</a>
-			<a href="#settings" data-icon="gear" data-role="button" class="ui-btn-active">Settings</a>
-			<a href="#deviceinfo" data-role="button" data-icon="grid">Devices</a>
-		</div>
-	</footer>
+    <!-- site map in footer -->
+    <div data-role="footer" class="sitemap">	
+        <ul data-role="listview" data-inset="true">
+          <li data-icon="home" data-role="button"><a href="#crumbsmain"></a></li>
+          <li data-icon="gear" data-role="button"><a href="#sweep">Sweep</a></li>
+          <li data-icon="gear" data-role="button"><a href="#tasty">Tasty</a></li>
+          <li data-icon="gear" data-role="button"><a href="#allcrumbs">Old</a></li>
+          <li data-icon="back"  data-role="button"><a href="#crumbsmain"></a></li>
+        </ul>	
+    </div>
 </div>
 
-<div data-role="page" data-theme="b" id="deviceinfo">
-	<header data-role="none">
-		<h1>Device Check</h1>
-		<h2>Juan Smithe</h2>
-	</header>
+<!-- Ultimate Crumbs page -->
+<div data-role="page" id="ultimate">
+	<div data-role="header">
+		<h1>Ultimate Crumbs</h1>
+	</div>
 	<div data-role="content">	
-		Device Info Page	
+		Content		
 	</div>
-	<footer data-role="footer" data-position="fixed">
-	<div data-role="navbar" data-iconpos="right">
-			<a href="#home" data-icon="home" data-role="button">Home</a>
-			<a href="#settings" data-icon="gear" data-role="button">Settings</a>
-			<a href="#deviceinfo" data-role="button" data-icon="grid" class="ui-btn-active">Devices</a>
-		</div>
-	</footer>
+	<div data-role="footer">
+		<h4>Site Map</h4>
+	</div>
 </div>
 
+<!-- Sweep Crumbs page -->
+<div data-role="page" id="sweep">
+	<div data-role="header">
+		<h1>Sweep Crumbs</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer">
+		<h4>Site Map</h4>
+	</div>
+</div>
 
+<!-- Tasty Crumbs page -->
+<div data-role="page" id="tasty">
+	<div data-role="header" class="logo">
+		<h1>Tasty Crumbs</h1>
+	</div>
+	<div id="notedetailcontent" data-role="content">
+	</div>
+	<div data-role="footer" data-theme="c">
+		<h4>Site Map</h4>
+	</div>
+</div>
+
+<!-- Pick Up Crumbs page -->
+<div data-role="page" id="old">
+	<div data-role="header">
+		<h1>Pick Up Crumbs</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer">
+		<h4>Site Map</h4>
+	</div>
+</div>
+
+<!-- All My Crumbs page -->
+<div data-role="page" id="allcrumbs">
+	<div data-role="header">
+		<h1>Current Crumbs</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer">
+		<h4>Site Map</h4>
+	</div>
+</div>
+
+<!-- About Bread Crumbs page -->
+<div data-role="page" id="aboutcrumbs">
+	<div data-role="header">
+		<h1>About Bread Crumbs</h1>
+	</div>
+	<div data-role="content">	
+        <div data-role="collapsible-set">
+            <div data-role="collapsible"  data-collapsed="false">
+                <h3>What are crumbs?</h3>		
+                <p>Crumbs are small pieces of life-bread that leave a trail and will help you remember where you came from and where you want to go.  Add a crumb to remind yourself to do something... or simply remember a precious moment, movie fact, or an epiphone!  
+            </div> <!-- collapsible -->
+
+            <div data-role="collapsible">
+                <h3>New Crumbs?</h3>	
+                <p>Adding a new crumb will also tag your crumb with date, time, and geolocation.  Add a new crumb to remind yourself to do something or leave a trail of something you already accomplished</p>	
+            </div> <!-- collapsible -->
+
+            <div data-role="collapsible">
+                <h3>Ultimate Crumbs</h3>
+                <p>Ultimate Crumbs reminds you of the big goals you set for yourself.  You will see the top goal appear on the home page</p>
+            </div> <!-- collapsible -->
+
+            <div data-role="collapsible">
+                <h3>Current Crumbs?</h3>		
+                <p>All My Crumbs brings all your active crumbs onto a single page, prioritizing by importance and by due date</p>
+            </div> <!-- collapsible -->
+
+            <div data-role="collapsible">
+                <h3>Sweep Crumbs?</h3>	
+                <p>This is where you can sweep up those crumbs by completing tasks that you set for yourself.  Happy sweeping!</p>
+            </div> <!-- collapsible -->
+
+            <div data-role="collapsible">
+                <h3>Tasty Crumbs?</h3>
+                <p>Tasty Crumbs can be anything "delicious", from a memorable moment or about a book you read to something you want to do that's fun!</p>
+            </div> <!-- collapsible -->
+
+            <div data-role="collapsible">
+                <h3>Old Crumbs</h3>	
+                <p>Here, you can see all the crumbs that are behind you, in case you want to remember your way back to something.</p>
+            </div> <!-- collapsible -->
+        </div> <!-- accordion -->
+	</div> <!-- content -->
+	<div data-role="footer">
+		<h4>Site Map</h4>
+	</div>
+</div>
+
+</div>
 </body>
 </html>
